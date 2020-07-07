@@ -32,19 +32,6 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
     }
-   /* void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Pick Up"))
-        {
-            if (IsPalindrome(other.gameObject.transform.GetChild(0).GetComponent<TMPro.TextMeshPro>().text.ToString()))
-            {
-                other.gameObject.SetActive(false);
-                count = count + 1;
-                SetCountText();
-            }
-        }
-    }*/
-
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Pick Up"))
         {

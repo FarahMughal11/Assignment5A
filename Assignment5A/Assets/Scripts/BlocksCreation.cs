@@ -8,7 +8,6 @@ public class BlocksCreation : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public GameObject myPrefab;
-   // public GameObject mytext;
     private Vector3 Cubes;
     private Vector3 Text;
     private bool tf;
@@ -23,7 +22,7 @@ public class BlocksCreation : MonoBehaviour
     void Start()
     {
         int i = 0;
-        List<string> results = RandomString(9);
+        List<string> results = RandomString(11);
         while (numofCubes > 0)
         {
 
@@ -37,9 +36,6 @@ public class BlocksCreation : MonoBehaviour
                 Instantiate(myPrefab, Cubes, Quaternion.identity);
                 Text = new Vector3(Cubes.x, Cubes.y, Cubes.z);
                 myPrefab.transform.GetChild(0).GetComponent<TMPro.TextMeshPro>().text = results[i];
-                //Instantiate(mytext, Text, Quaternion.identity);
-                //Instantiate(mytext, Cubes, Quaternion.identity);
-                //mytext.GetComponent<TMPro.TextMeshPro>().text = results[i];
                 i++;
                 numofCubes = numofCubes - 1;
             }
@@ -53,7 +49,6 @@ public class BlocksCreation : MonoBehaviour
         
         for (int i = 0; i <= 10; i++)
         {
-           // x = UnityEngine.Random.Range(9, 15);
             const string chars = "XF8";
             string val = new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
