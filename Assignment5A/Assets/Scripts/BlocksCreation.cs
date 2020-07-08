@@ -22,7 +22,7 @@ public class BlocksCreation : MonoBehaviour
     void Start()
     {
         int i = 0;
-        List<string> results = RandomString(11);
+       List<string> results = RandomString();
         while (numofCubes > 0)
         {
 
@@ -43,21 +43,23 @@ public class BlocksCreation : MonoBehaviour
         }
 
     }
-    public static List<string> RandomString(int length)
-    {
-        List<string> list_of_strings = new List<string>();
-        
+
+    public static List<string> RandomString()
+     {
+         List<string> list_of_strings = new List<string>();
+        int length;
         for (int i = 0; i <= 10; i++)
-        {
+         {
+            length = UnityEngine.Random.Range(9, 15);
             const string chars = "XF8";
             string val = new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+               .Select(s => s[random.Next(s.Length)]).ToArray());
 
-            list_of_strings.Add(val);
-        }
-        List<string> test = createPalindrome(list_of_strings);
-        return test;
-    }
+             list_of_strings.Add(val);
+         }
+         List<string> test = createPalindrome(list_of_strings);
+         return test;
+     }
 
     public static List<string> createPalindrome(List<string> val)
     {
